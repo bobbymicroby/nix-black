@@ -50,14 +50,14 @@ enable = true;
 };
 
 videoDrivers = [ "nvidia" ];
-dpi = 200;
+dpi = 160;
 
 monitorSection = ''
       DisplaySize 401 171
     '';
 
 screenSection = ''
-    Option "DPI" "200 x 200"
+    Option "DPI" "160 x 160"
     '';
         
     
