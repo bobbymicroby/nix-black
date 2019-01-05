@@ -90,8 +90,16 @@ enable = true;
 
 }; 
 
+programs.zsh = {
+  enable = true;
+  autosuggestions.enable = true;
+  ohMyZsh.enable = true;
+  ohMyZsh.plugins = [ "git" ];
+  ohMyZsh.theme = "frisk";  
+  syntaxHighlighting.enable = true;
+};
 
-
+users.defaultUserShell = pkgs.zsh;
 
   system.stateVersion = "18.09"; 
 
