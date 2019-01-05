@@ -51,6 +51,9 @@ services.upower.enable = true;
 
 services.xserver = {
 
+layout = "us,bg(phonetic)";
+xkbOptions = "grp:ctrl_shift_toggle";
+
 
 enable=true;
 
@@ -79,13 +82,16 @@ screenSection = ''
     Option "DPI" "160 x 160"
     '';
         
-    
-windowManager.xmonad = {
+ windowManager = {
+    xmonad.enable = true;
+    xmonad.extraPackages = hpkgs: [
+      hpkgs.taffybar
+      hpkgs.xmonad-contrib
+      hpkgs.xmonad-extras
+    ];
+    default = "xmonad";
+  };    
 
-enable = true;
-
-
-};
 
 
 }; 
