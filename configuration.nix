@@ -4,7 +4,7 @@
 {
 imports =
   [ 
-     ./hardware-configuration.nix
+    ./hardware-configuration.nix
 ];
 
 boot.loader.systemd-boot.enable = true;
@@ -24,14 +24,6 @@ time.timeZone = "Europe/Sofia";
 
 virtualisation.docker.enable = true;
 
-users.extraUsers.bobby = {
-createHome=true;
-extraGroups  = ["wheel" "docker" "video" "audio" "disk" "networkmanager"];
-group = "users";
-home  ="/home/bobby";
-isNormalUser = true;
-uid = 1000;
-}; 
 
 hardware.pulseaudio.enable = true;
 hardware.pulseaudio.support32Bit = true;
@@ -43,11 +35,26 @@ nixpkgs.config.allowUnfree = true;
 
 
 environment.systemPackages = with pkgs; [
-vim
+
+(pkgs.vim_configurable.customize {
+      name = "vim";
+      vimrcConfig.vam.pluginDictionaries = [
+        # vim-nix handles indentation better but does not perform sanity
+        { names = [ "vim-addon-nix" ]; ft_regex = "^nix\$"; }
+];
+})
+
 gitFull 
 htop
 which
 file
+
+cabal-install
+cabal2nix
+emacs
+unrar
+unzip
+
 ];
 
 
@@ -56,7 +63,7 @@ services.upower.enable = true;
 services.xserver = {
 
 layout = "us,bg(phonetic)";
-xkbOptions = "grp:ctrl_shift_toggle";
+xkbOptions = "grp:lwin_toggle";
 
 
 enable=true;
@@ -102,14 +109,24 @@ screenSection = ''
 
 programs.zsh = {
   enable = true;
-  autosuggestions.enable = true;
   ohMyZsh.enable = true;
   ohMyZsh.plugins = [ "git" ];
-  ohMyZsh.theme = "frisk";  
+  ohMyZsh.theme = "robbyrussell";  
   syntaxHighlighting.enable = true;
 };
 
 users.defaultUserShell = pkgs.zsh;
+
+
+users.extraUsers.bobby = {
+createHome=true;
+extraGroups  = ["wheel" "docker" "video" "audio" "disk" "networkmanager"];
+group = "users";
+home  ="/home/bobby";
+isNormalUser = true;
+uid = 1000;
+}; 
+
 
   system.stateVersion = "18.09"; 
 
