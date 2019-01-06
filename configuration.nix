@@ -20,9 +20,13 @@ boot.initrd.luks.devices = [
 networking.networkmanager.enable = true;
 networking.hostName = "black-nixos";
 
+time.timeZone = "Europe/Sofia";
+
+virtualisation.docker.enable = true;
+
 users.extraUsers.bobby = {
 createHome=true;
-extraGroups  = ["wheel" "video" "audio" "disk" "networkmanager"];
+extraGroups  = ["wheel" "docker" "video" "audio" "disk" "networkmanager"];
 group = "users";
 home  ="/home/bobby";
 isNormalUser = true;
