@@ -9,6 +9,7 @@ with import <nixpkgs> { };
     unrar
     unzip
     veracrypt
+    android-studio-beta
     ;
   inherit (haskellPackages)
     ghcid

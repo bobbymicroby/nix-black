@@ -48,13 +48,14 @@ gitFull
 htop
 which
 file
-
+firefox
 cabal-install
 cabal2nix
 emacs
 unrar
 unzip
-
+glibc
+patchelf
 ];
 
 
@@ -197,6 +198,9 @@ programs.ssh = {
 };  
 
 programs.zsh = {
+  shellAliases = {
+  ff = "firefox &>/dev/null &";
+  };  
   enable = true;
   ohMyZsh.enable = true;
   ohMyZsh.plugins = [ "git" ];
