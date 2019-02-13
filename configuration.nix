@@ -56,6 +56,7 @@ unrar
 unzip
 glibc
 patchelf
+tmux
 ];
 
 
@@ -108,67 +109,13 @@ displayManager.sessionCommands =  ''
            
        xrdb "${pkgs.writeText  "xrdb.conf" ''
        
-       #define S_base03        #002b36
-       #define S_base02        #073642
-       #define S_base01        #586e75
-       #define S_base00        #657b83
-       #define S_base0         #839496
-       #define S_base1         #93a1a1
-       #define S_base2         #eee8d5
-       #define S_base3         #fdf6e3
-       #define S_yellow        #b58900
-       #define S_orange        #cb4b16
-       #define S_red           #dc322f
-       #define S_magenta       #d33682
-       #define S_violet        #6c71c4
-       #define S_blue          #268bd2
-       #define S_cyan          #2aa198
-       #define S_green         #859900
-
-
 
        XTerm*faceName:             xft:Dejavu Sans Mono for Powerline:size=11
        XTerm*utf8:                 2
 
        
-       XTerm*background:            S_base03
-       XTerm*foreground:            S_base0
-       XTerm*fadeColor:             S_base03
-       XTerm*cursorColor:           S_base1
-       XTerm*pointerColorBackground:S_base01
-       XTerm*pointerColorForeground:S_base1
-
-       !! black dark/light
-       XTerm*color0:                S_base02
-       XTerm*color8:                S_base03
-
-       !! red dark/light
-       XTerm*color1:                S_red
-       XTerm*color9:                S_orange
-
-       !! green dark/light
-       XTerm*color2:                S_green
-       XTerm*color10:               S_base01
-
-       !! yellow dark/light
-       XTerm*color3:                S_yellow
-       XTerm*color11:               S_base00
-
-       !! blue dark/light
-       XTerm*color4:                S_blue
-       XTerm*color12:               S_base0
-
-       !! magenta dark/light
-       XTerm*color5:                S_magenta
-       XTerm*color13:               S_violet
-
-       !! cyan dark/light
-       XTerm*color6:                S_cyan
-       XTerm*color14:               S_base1
-
-       !! white dark/light
-       XTerm*color7:                S_base2
-       XTerm*color15: S_base3
+       XTerm*background:           #000000 
+       XTerm*foreground:           #ffffff 
                
 
        Xft*antialias:              true
@@ -205,8 +152,8 @@ programs.zsh = {
   };  
   enable = true;
   ohMyZsh.enable = true;
-  ohMyZsh.plugins = [ "git" ];
-  ohMyZsh.theme = "agnoster";  
+  ohMyZsh.plugins = [ "git"];
+  ohMyZsh.theme = "robbyrussell";  
   syntaxHighlighting.enable = true;
 };
 
