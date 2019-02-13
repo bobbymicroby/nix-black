@@ -8,6 +8,7 @@ with import <nixpkgs> { };
     emacs
     unrar
     unzip
+    veracrypt
     ;
   inherit (haskellPackages)
     ghcid

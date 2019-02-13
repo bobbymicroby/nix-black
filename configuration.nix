@@ -115,6 +115,11 @@ displayManager.sessionCommands =  ''
 
 }; 
 
+programs.ssh = {
+ startAgent = true;
+
+};  
+
 programs.zsh = {
   enable = true;
   ohMyZsh.enable = true;
