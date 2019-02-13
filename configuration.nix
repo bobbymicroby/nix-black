@@ -102,6 +102,14 @@ screenSection = ''
     ];
     default = "xmonad";
   };    
+displayManager.sessionCommands =  ''
+       xrdb "${pkgs.writeText  "xrdb.conf" ''
+       xterm*Background: black
+       xterm*Foreground: white
+       
+       ''}"
+    '';
+  
 
 
 
