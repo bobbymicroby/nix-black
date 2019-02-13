@@ -4,6 +4,7 @@ with import <nixpkgs> { };
   inherit (pkgs)
     cabal-install
     cabal2nix
+    nix-prefetch-git
     emacs
     unrar
     unzip
