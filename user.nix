@@ -9,6 +9,7 @@ with import <nixpkgs> { };
     unrar
     unzip
     veracrypt
+    adoptopenjdk-hotspot-bin-11.0.1
     ;
   inherit (haskellPackages)
     ghcid

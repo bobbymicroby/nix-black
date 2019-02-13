@@ -20,6 +20,8 @@ boot.initrd.luks.devices = [
 networking.networkmanager.enable = true;
 networking.hostName = "black-nixos";
 
+networking.firewall.allowedTCPPortRanges = [ { from = 8443; to = 8443; } ];
+
 time.timeZone = "Europe/Sofia";
 
 virtualisation.docker.enable = true;
@@ -34,7 +36,9 @@ nixpkgs.config.allowUnfree = true;
 
 programs.adb.enable = true;
 
+environment.variables._JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd";
 environment.systemPackages = with pkgs; [
+
 
 (pkgs.vim_configurable.customize {
       name = "vim";
@@ -85,14 +89,15 @@ enable = true;
 };
 
 videoDrivers = [ "nvidia" ];
-dpi = 160;
+dpi = 150;
+
 
 monitorSection = ''
       DisplaySize 401 171
     '';
 
 screenSection = ''
-    Option "DPI" "160 x 160"
+    Option "DPI" "150 x 150"
     '';
         
  windowManager = {
@@ -105,7 +110,7 @@ screenSection = ''
     default = "xmonad";
   };    
 displayManager.sessionCommands =  ''
-       xset r rate 300 50 
+       xset r rate 350 50 
            
        xrdb "${pkgs.writeText  "xrdb.conf" ''
        
