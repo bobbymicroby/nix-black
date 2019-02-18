@@ -61,6 +61,7 @@ unzip
 glibc
 patchelf
 tmux
+dmenu
 ];
 
 
