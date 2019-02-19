@@ -62,7 +62,13 @@ glibc
 patchelf
 tmux
 dmenu
+gnome3.gnome-screenshot
+google-chrome
+dzen2
+conky
 ];
+
+
 
 
 services.upower.enable = true;
